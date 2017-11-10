@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @Configuration
-@EnableMongoRepositories("com.integration.test.integrationtest.repository")
+@EnableMongoRepositories("com.integration.test.integrationtest.infrastructure.repository")
 public class MongoDBConfiguration extends AbstractMongoConfiguration {
 
   @Value("${spring.data.mongodb.host}")

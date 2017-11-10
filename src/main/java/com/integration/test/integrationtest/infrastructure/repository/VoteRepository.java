@@ -1,4 +1,4 @@
-package com.integration.test.integrationtest.repository;
+package com.integration.test.integrationtest.infrastructure.repository;
 
 
 import com.integration.test.integrationtest.domain.Vote;
