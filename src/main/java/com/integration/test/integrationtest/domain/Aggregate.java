@@ -14,7 +14,7 @@ public class Aggregate {
   private int baseVersion;
   private List<Event> newEventsList;
 
-  protected void newEvent(Event event){
+  protected void applyNewEvent(Event event){
     if (event.getVersion() == getBaseVersion()) {
       throw new IllegalArgumentException("New version can't be the same");
     }
