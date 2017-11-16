@@ -3,6 +3,7 @@ package com.integration.test.integrationtest.domain;
 import static java.lang.String.format;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import lombok.Data;
@@ -13,6 +14,15 @@ public class Aggregate {
   private UUID id;
   private int baseVersion;
   private List<Event> newEventsList;
+
+  protected Aggregate(UUID uuid) {
+    this(uuid, new ArrayList<>());
+  }
+
+  protected Aggregate(UUID id, List<Event> newEventsList) {
+    this.id = id;
+    this.newEventsList = newEventsList;
+  }
 
   protected void applyNewEvent(Event event){
     if (event.getVersion() == getBaseVersion()) {
