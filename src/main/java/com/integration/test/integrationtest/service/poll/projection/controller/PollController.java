@@ -1,4 +1,4 @@
-package com.integration.test.integrationtest.domain.poll.controller;
+package com.integration.test.integrationtest.service.poll.projection.controller;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;

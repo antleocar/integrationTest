@@ -15,14 +15,14 @@ public class PollService {
   private final EventStore eventStore;
 
   public Poll process(PollCommand pollCommand) {
-    Poll poll = new Poll(pollCommand.getIdPoll(), pollCommand.getIdVotes());
+    Poll poll = new Poll(UUID.randomUUID(), pollCommand.getIdPoll(), pollCommand.getIdVotes());
     storeEvents(poll);
     return poll;
   }
 
   public Optional<Poll> loadPoll(UUID id) {
     List<Event> eventPoll = eventStore.load(id);
-    return !eventPoll.isEmpty() ? Optional.of(new Poll(id.toString(), eventPoll)) : Optional.empty();
+    return !eventPoll.isEmpty() ? Optional.of(new Poll(id, eventPoll)) : Optional.empty();
   }
 
   private void storeEvents(Poll poll) {
