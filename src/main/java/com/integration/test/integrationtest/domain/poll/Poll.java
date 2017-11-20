@@ -17,13 +17,13 @@ public class Poll extends Aggregate {
   private String idPoll;
   private List<String> idVotes;
 
-  public Poll(UUID uuid, String idPoll, List<String> idVotes) {
+  public Poll(String uuid, String idPoll, List<String> idVotes) {
     super(uuid);
     PollConsumeEvent pollConsumeEvent = new PollConsumeEvent(uuid, System.currentTimeMillis(), nextBaseVersion(), idPoll, idVotes);
     applyNewEvent(pollConsumeEvent);
   }
 
-  public Poll(UUID idPoll, List<Event> eventStream) {
+  public Poll(String idPoll, List<Event> eventStream) {
     super(idPoll, eventStream);
   }
 

@@ -12,7 +12,7 @@ public class VoteEvent extends Event {
   private String idVoteEvent;
   private Long creationMoment;
 
-  public VoteEvent(UUID aggregateId, Long time, int version, String idVoteEvent, Long creationMoment) {
+  public VoteEvent(String aggregateId, Long time, int version, String idVoteEvent, Long creationMoment) {
     super(aggregateId, time, version);
     this.idVoteEvent = idVoteEvent;
     this.creationMoment = creationMoment;

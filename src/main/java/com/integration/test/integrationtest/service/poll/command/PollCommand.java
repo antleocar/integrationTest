@@ -4,11 +4,33 @@ import java.util.List;
 import java.util.UUID;
 import lombok.Data;
 
-@Data
 public class PollCommand {
 
-  private UUID id;
-  private final String idPoll;
-  private final List<String> idVotes;
+  private String id;
+  private String idPoll;
+  private List<String> idVotes;
 
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getIdPoll() {
+    return idPoll;
+  }
+
+  public void setIdPoll(String idPoll) {
+    this.idPoll = idPoll;
+  }
+
+  public List<String> getIdVotes() {
+    return idVotes;
+  }
+
+  public void setIdVotes(List<String> idVotes) {
+    this.idVotes = idVotes;
+  }
 }
