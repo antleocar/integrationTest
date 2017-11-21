@@ -1,26 +1,25 @@
 package com.integration.test.integrationtest.service.poll;
 
+import com.google.common.eventbus.EventBus;
 import com.integration.test.integrationtest.domain.Event;
 import com.integration.test.integrationtest.domain.EventStore;
 import com.integration.test.integrationtest.domain.poll.Poll;
 import com.integration.test.integrationtest.service.poll.command.CreateVoteCommand;
-import com.integration.test.integrationtest.service.poll.command.PollCommand;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-import lombok.Data;
 
 @Service
 public class PollService {
 
   private EventStore eventStore;
+  private EventBus eventBus;
 
   public Poll process(CreateVoteCommand pollCommand) {
     Optional<Poll> poll = loadPoll(pollCommand.getIdPoll());
+    poll.get().getVotes().put(pollCommand.getPollOption(), pollCommand.getVote());
     storeEvents(poll.get());
     return poll.get();
   }
@@ -32,6 +31,7 @@ public class PollService {
 
   private void storeEvents(Poll poll) {
     eventStore.store(UUID.randomUUID().toString(), poll.getNewEventsList(), poll.getBaseVersion());
+    eventBus.post(poll);
   }
 
 

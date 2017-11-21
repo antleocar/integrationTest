@@ -1,36 +1,19 @@
 package com.integration.test.integrationtest.service.poll.command;
 
 import java.util.List;
-import java.util.UUID;
+import java.util.Map;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class PollCommand {
 
   private String id;
   private String idPoll;
-  private List<String> idVotes;
+  private List<String> pollOptions;
+  private Map<String, Integer> votes;
 
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getIdPoll() {
-    return idPoll;
-  }
-
-  public void setIdPoll(String idPoll) {
-    this.idPoll = idPoll;
-  }
-
-  public List<String> getIdVotes() {
-    return idVotes;
-  }
-
-  public void setIdVotes(List<String> idVotes) {
-    this.idVotes = idVotes;
-  }
 }

@@ -1,28 +1,16 @@
 package com.integration.test.integrationtest.service.poll.command;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class CreateVoteCommand {
 
   private String idPoll;
   private String pollOption;
+  private Integer vote;
 
-  public CreateVoteCommand(String idPoll, String pollOption) {
-    this.idPoll = idPoll;
-    this.pollOption = pollOption;
-  }
-
-  public String getIdPoll() {
-    return idPoll;
-  }
-
-  public void setIdPoll(String idPoll) {
-    this.idPoll = idPoll;
-  }
-
-  public String getPollOption() {
-    return pollOption;
-  }
-
-  public void setPollOption(String pollOption) {
-    this.pollOption = pollOption;
-  }
 }

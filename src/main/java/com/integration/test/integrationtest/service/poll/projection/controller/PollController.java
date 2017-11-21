@@ -30,7 +30,7 @@ public class PollController {
 
   @RequestMapping(value = "/{idPoll}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<Void> vote(@PathParam("idPoll") String idPoll, String pollOption) {
-    CreateVoteCommand command = new CreateVoteCommand(idPoll, pollOption);
+    CreateVoteCommand command = new CreateVoteCommand(idPoll, pollOption, 1);
     pollService.process(command);
     return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }

@@ -1,43 +1,17 @@
 package com.integration.test.integrationtest.domain;
 
 import static java.lang.String.format;
-
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 import lombok.Data;
 
+@Data
 public class Aggregate {
 
   private String id;
   private int baseVersion;
   private List<Event> newEventsList;
-
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public int getBaseVersion() {
-    return baseVersion;
-  }
-
-  public void setBaseVersion(int baseVersion) {
-    this.baseVersion = baseVersion;
-  }
-
-  public List<Event> getNewEventsList() {
-    return newEventsList;
-  }
-
-  public void setNewEventsList(
-      List<Event> newEventsList) {
-    this.newEventsList = newEventsList;
-  }
 
   protected Aggregate(String uuid) {
     this(uuid, new ArrayList<>());
